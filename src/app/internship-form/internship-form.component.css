@@ -1,0 +1,12 @@
+.error{
+  border-color: #ff0000;
+}
+
+.error-message{
+  color: #ff0000;
+}
+
+form{
+  padding: 30px;
+  border: 1px dashed #0275d8;
+}

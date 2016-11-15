@@ -1,0 +1,14 @@
+.introduction {
+  background-image: url("../../app/shared/img/jumbo-background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 460px;
+  background-position: bottom;
+}
+
+.introduction-text{
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+  padding: 20px;
+}
+
