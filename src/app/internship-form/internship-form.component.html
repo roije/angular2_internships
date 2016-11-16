@@ -100,30 +100,6 @@
     </div>
   </div>
 
-
-  <div class="row">
-    <div class="form-group">
-      <label for="internid">ID of internship agreement</label>
-      <br/>
-      <input type="text"
-             id="internid"
-             placeholder="e.g. intern1234"
-             class="form-control"
-             [class.error]="!internshipForm.controls.internid.valid && internshipForm.controls.internid.touched"
-             [formControl]="internshipForm.controls['internid']">
-
-      <div class="error-message" *ngIf="!internshipForm.controls.internid.valid &&
-                    internshipForm.controls.internid.touched " >
-        This field is invalid
-      </div>
-
-      <div class="error-message" *ngIf="internshipForm.controls.internid.hasError('required') &&
-                   internshipForm.controls.internid.touched ">
-        Please enter an internship ID
-      </div>
-    </div>
-  </div>
-
   <div class="row">
     <div class="form-group">
       <label for="companyname">Company you visited</label>

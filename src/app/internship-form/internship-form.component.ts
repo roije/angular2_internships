@@ -24,7 +24,6 @@ export class InternshipFormComponent implements OnInit {
           Validators.pattern("[0-9]{2}\/[0-9]{2}\/[0-9]{2}")
         ]],
         'studentname': ['', Validators.required],
-        'internid' : ['', Validators.required],
         'companyname' : ['', Validators.required],
         'personmet' : ['', Validators.required],
         'companyvision' : ['', Validators.minLength(10)],

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {InternshipsService} from "../shared/internships.service";
 
 @Component({
   selector: 'app-internship-list',
@@ -7,9 +8,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InternshipListComponent implements OnInit {
 
-  constructor() { }
+  private internships: any[];
+  private message: string;
+  private iterator;
+
+  constructor(private internshipsService: InternshipsService) { }
 
   ngOnInit() {
+    this.iterator = 0;
+    this.internships = this.internshipsService.getAllLocalInternships();
+
+    if (!this.internships) {
+      this.message = "Retrieving data...";
+
+      this.internshipsService.getAllRemoteInternships().subscribe(
+        (internships) => {
+          this.internships = internships;
+          this.message = "";
+        },
+        error => this.message = error
+      );
+    }
   }
 
 }

@@ -1,3 +1,10 @@
-<p>
-  internship-list works!
-</p>
+{{message}}
+
+<div class="row">
+  <div class="col-sm-6 col-xl-4" *ngFor="let internship of internships">
+    <div class="card card-block" *ngFor="let object of internship">
+      <h3 class="card-title">{{object.studentname}}</h3> <!-- Student name -->
+      <p class="card-text">Company:</p>
+    </div>
+  </div>
+</div>
