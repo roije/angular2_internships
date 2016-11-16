@@ -1,10 +1,20 @@
 {{message}}
 
+<!--
 <div class="row">
   <div class="col-sm-6 col-xl-4" *ngFor="let internship of internships">
     <div class="card card-block" *ngFor="let object of internship">
-      <h3 class="card-title">{{object.studentname}}</h3> <!-- Student name -->
+      <h3 class="card-title">{{object.studentname}}</h3>
       <p class="card-text">Company:</p>
     </div>
+  </div>
+</div>
+-->
+<div class="row">
+  <div class="col-md-3 internship-card" *ngFor="let internship of internships">
+    <h5>{{internship.initials}}</h5>
+    <h6>{{internship.studentname}}</h6>
+    <h6>{{internship.companyname}}</h6>
+    <button class="btn btn-primary btn-sm">Details</button>
   </div>
 </div>

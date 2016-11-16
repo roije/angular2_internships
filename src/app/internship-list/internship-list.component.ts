@@ -10,12 +10,10 @@ export class InternshipListComponent implements OnInit {
 
   private internships: any[];
   private message: string;
-  private iterator;
 
   constructor(private internshipsService: InternshipsService) { }
 
   ngOnInit() {
-    this.iterator = 0;
     this.internships = this.internshipsService.getAllLocalInternships();
 
     if (!this.internships) {
