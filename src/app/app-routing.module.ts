@@ -26,9 +26,11 @@ const routes: Routes = [
     children: [
       {path: '' },
       {path: 'internship-form', component: InternshipFormComponent},
-      {path: 'internship-list', component: InternshipListComponent}
-    ]
-  }
+      {path: 'internship-list', component: InternshipListComponent},
+    ],
+  },
+  {path: 'internship-form/:id', component: InternshipFormComponent}
+
 ];
 
 @NgModule({

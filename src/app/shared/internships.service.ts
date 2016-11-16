@@ -44,6 +44,16 @@ export class InternshipsService{
       .catch(this.handleError);
   }
 
+  public getInternship(id: number) : Observable<any> {
+    return this.http.get(this.url + '/' + id)
+      .map((res: Response) => {
+        let data = res.json();
+        //console.log(data);
+        return data || {};
+      })
+      .catch(this.handleError)
+  }
+
   private handleError(error: Response | any) {
     return Observable.throw("some error message");
   }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {InternshipsService} from "../shared/internships.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-internship-list',
@@ -11,7 +12,7 @@ export class InternshipListComponent implements OnInit {
   private internships: any[];
   private message: string;
 
-  constructor(private internshipsService: InternshipsService) { }
+  constructor(private internshipsService: InternshipsService, private router: Router) { }
 
   ngOnInit() {
     this.internships = this.internshipsService.getAllLocalInternships();
@@ -27,6 +28,11 @@ export class InternshipListComponent implements OnInit {
         error => this.message = error
       );
     }
+  }
+
+  goToInternship(internship: any) : void {
+    let link = ['/internship-form', internship.id];
+    this.router.navigate(link);
   }
 
 }

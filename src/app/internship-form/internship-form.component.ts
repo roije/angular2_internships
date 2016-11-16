@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from "@angular/forms";
 import {MyValidators} from "./MyValidators";
 import {InternshipsService} from "../shared/internships.service";
-import {Router} from "@angular/router";
+import {Router, ActivatedRoute, Params} from "@angular/router";
 
 @Component({
   selector: 'app-internship-form',
@@ -11,11 +11,21 @@ import {Router} from "@angular/router";
 })
 export class InternshipFormComponent implements OnInit {
 
+  selectedInternship : any;
   internshipForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private internshipService: InternshipsService, private router: Router) { }
+  constructor(private fb: FormBuilder, private internshipService: InternshipsService, private router: Router,
+              private route: ActivatedRoute) { }
 
   ngOnInit() {
+
+    this.route.params.forEach((params: Params) =>
+    {
+      let id = +params['id']; // (+) converts string 'id' to a number
+      this.internshipService.getInternship(id).subscribe(
+        internship => this.selectedInternship = internship
+      );
+    });
 
     this.internshipForm = this.fb.group(
       {
