@@ -31,6 +31,8 @@ export class InternshipsService{
       .catch(this.handleError)
   }
 
+  public
+
   private handleError(error: Response | any) {
     return Observable.throw("some error message");
   }
