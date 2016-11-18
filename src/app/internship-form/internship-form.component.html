@@ -8,7 +8,7 @@
              id="initials"
              placeholder="e.g. 123john"
              class="form-control"
-             value="{{this.selectedInternship?.data.initials}}"
+             value="{{this.selectedInternship?.initials}}"
              [class.error]="!internshipForm.controls.initials.valid && internshipForm.controls.initials.touched &&
                               internshipForm.controls.initials.hasError('invalidChars')"
              [formControl]="internshipForm.controls['initials']">
@@ -63,7 +63,7 @@
              id="visitdate"
              placeholder="e.g. 01/01/16"
              class="form-control"
-             value="{{this.selectedInternship?.data.visitdate}}"
+             value="{{this.selectedInternship?.visitdate}}"
              [class.error]="!internshipForm.controls.visitdate.valid && internshipForm.controls.visitdate.touched ||
                 internshipForm.controls.visitdate.hasError('pattern')"
              [formControl]="internshipForm.controls['visitdate']">
@@ -89,7 +89,7 @@
              id="studentname"
              placeholder="e.g. John Doe"
              class="form-control"
-             value="{{this.selectedInternship?.data.studentname}}"
+             value="{{this.selectedInternship?.studentname}}"
              [class.error]="!internshipForm.controls.studentname.valid && internshipForm.controls.studentname.touched"
              [formControl]="internshipForm.controls['studentname']">
 
@@ -113,7 +113,7 @@
              id="companyname"
              placeholder="e.g. Pied Piper"
              class="form-control"
-             value="{{this.selectedInternship?.data.companyname}}"
+             value="{{this.selectedInternship?.companyname}}"
              [class.error]="!internshipForm.controls.companyname.valid && internshipForm.controls.companyname.touched"
              [formControl]="internshipForm.controls['companyname']">
 
@@ -137,7 +137,7 @@
              id="personmet"
              placeholder="e.g. Bob Larsen, Johanne Bech"
              class="form-control"
-             value="{{this.selectedInternship?.data.personmet}}"
+             value="{{this.selectedInternship?.personmet}}"
              [class.error]="!internshipForm.controls.personmet.valid && internshipForm.controls.personmet.touched"
              [formControl]="internshipForm.controls['personmet']">
 
@@ -184,7 +184,7 @@
                 id="companycompetence"
                 placeholder="Write something here with a minimum lenght of 10 characters..."
                 class="form-control"
-                value="{{this.selectedInternship?.data.companycompetence}}"
+                value="{{this.selectedInternship?.companycompetence}}"
                 [class.error]="!internshipForm.controls.companycompetence.valid"
                 [formControl]="internshipForm.controls['companycompetence']"> </textarea>
 
@@ -207,7 +207,7 @@
                 id="studentcompetence"
                 placeholder="Write something here with a minimum lenght of 10 characters..."
                 class="form-control"
-                value="{{this.selectedInternship?.data.studentcompetence}}"
+                value="{{this.selectedInternship?.studentcompetence}}"
                 [class.error]="!internshipForm.controls.studentcompetence.valid"
                 [formControl]="internshipForm.controls['studentcompetence']"> </textarea>
 
@@ -231,7 +231,7 @@
                 id="collaborative"
                 placeholder="Write something here with a minimum lenght of 10 characters..."
                 class="form-control"
-                value="{{this.selectedInternship?.data.collaborative}}"
+                value="{{this.selectedInternship?.collaborative}}"
                 [class.error]="!internshipForm.controls.collaborative.valid"
                 [formControl]="internshipForm.controls['collaborative']"> </textarea>
 
@@ -253,7 +253,7 @@
                 id="othercomments"
                 placeholder="Write something here..."
                 class="form-control"
-                value="{{this.selectedInternship?.data.othercomments}}"
+                value="{{this.selectedInternship?.othercomments}}"
                 [formControl]="internshipForm.controls['othercomments']"> </textarea>
     </div>
 

@@ -54,6 +54,20 @@ export class InternshipsService{
       .catch(this.handleError)
   }
 
+  public updateInternship(id: number, internship: any) : Observable<any> {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+
+    console.log(id);
+    return this.http.put(this.url + "/" + id, internship, options)
+      .map((res: Response) => {
+        let data = res.json();
+        //console.log(data);
+        return data || {};
+      })
+      .catch(this.handleError);
+  }
+
   private handleError(error: Response | any) {
     return Observable.throw("some error message");
   }

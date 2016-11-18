@@ -22,9 +22,11 @@ export class InternshipFormComponent implements OnInit {
     this.route.params.forEach((params: Params) =>
     {
       let id = +params['id']; // (+) converts string 'id' to a number
-      this.internshipService.getInternship(id).subscribe(
-        internship => this.selectedInternship = internship
-      );
+      if(!isNaN(id)) {
+        this.internshipService.getInternship(id).subscribe(
+            internship => this.selectedInternship = internship
+          );
+      }
     });
 
     this.internshipForm = this.fb.group(
@@ -46,31 +48,47 @@ export class InternshipFormComponent implements OnInit {
   }
 
   onSubmit(form) {
-    if(form.valid) {
+    if(form.valid)
+    {
+      if(this.selectedInternship) {
+        console.log("Trying to update")
+        console.log(this.selectedInternship.id);
+        var internshipToUpdate = this.generateObject(form);
+        this.internshipService.updateInternship(this.selectedInternship.id, internshipToUpdate).subscribe()
+      }
+      else {
 
-      var internship = {
-        initials: form.controls.initials.value,
-        visitdate: form.controls.visitdate.value,
-        studentname: form.controls.studentname.value,
-        companyname: form.controls.companyname.value,
-        personmet: form.controls.personmet.value,
-        companyvision: form.controls.companyvision.value,
-        companycompetence: form.controls.companycompetence.value,
-        studentcompetence: form.controls.studentcompetence.value,
-        collaborative: form.controls.collaborative.value,
-        othercomments: form.controls.othercomments.value
-      };
+        console.log("Trying to create a new")
+        var internship = this.generateObject(form);
 
-      this.internshipService.createInternship(internship).subscribe(
-        () => this.router.navigate(['/internships/internship-list'])
-      );
-
-
-
+        console.log(internship);
+        this.internshipService.createInternship(internship).subscribe(
+          () => this.router.navigate(['/internships/internship-list'])
+        );
+      }
     }
     else{
       console.log("Invalid");
     }
   }
+
+
+  generateObject(form) : any {
+
+    var internship = {
+      initials: form.controls.initials.value,
+      visitdate: form.controls.visitdate.value,
+      studentname: form.controls.studentname.value,
+      companyname: form.controls.companyname.value,
+      personmet: form.controls.personmet.value,
+      companyvision: form.controls.companyvision.value,
+      companycompetence: form.controls.companycompetence.value,
+      studentcompetence: form.controls.studentcompetence.value,
+      collaborative: form.controls.collaborative.value,
+      othercomments: form.controls.othercomments.value
+    };
+    return internship;
+  }
+
 
 }
